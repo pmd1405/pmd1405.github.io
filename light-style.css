@@ -1,11 +1,8 @@
 body {
-    background: linear-gradient(-20deg,#3eb2b6 0%,#111111 100%)no-repeat fixed top right;
+    background: linear-gradient(-20deg,#7AC5CD 0%,#96CDCD 100%)no-repeat fixed top right;
     font-family: 'Open Sans', sans-serif;
     margin: 0;
 }
-
-html,body{cursor:url("https://i.imgur.com/5v5M8gh.png"), auto;}
-a:hover{cursor:url("https://i.imgur.com/IXULuQ1.png"), auto;}
 
 h2 {
     color: rgb(26, 26, 26);
