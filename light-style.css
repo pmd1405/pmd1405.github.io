@@ -112,7 +112,7 @@ a {
 
 .profile-below .right {
   display: flex;
-    width: 60%;
+    width: 30%;
     margin: 20px 0;
     padding: 0 30px;
     flex-shrink: 0;
