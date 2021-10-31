@@ -76,7 +76,7 @@ a {
 
 .profile-below .left {
     display: flex;
-    width: auto;
+    width: 50%;
     margin: 50px 0;
     padding: 0 45px;
     border-right: 1px solid #777777;
