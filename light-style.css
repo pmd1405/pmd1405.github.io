@@ -111,13 +111,13 @@ a {
 }
 
 .profile-below .right {
-    display:flex;
-    width: auto;
-    justify-content:space-between;
-    flex-direction: column;
+  display: flex;
+    width: 60%;
     margin: 20px 0;
     padding: 0 30px;
-    flex: 1;
+    flex-shrink: 0;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .profile-below .right .link {
@@ -219,4 +219,12 @@ a {
         width: auto;
         border: 0;
     }
+    .profile-below .right {
+    display:flex;
+    justify-content:space-between;
+    flex-direction: column;
+    margin: 20px 0;
+    padding: 0 30px;
+    flex: 1;
+}
 }
