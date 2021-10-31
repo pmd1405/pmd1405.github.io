@@ -76,7 +76,7 @@ a {
 
 .profile-below .left {
     display: flex;
-    width: 100%;
+    width: 60%;
     margin: 50px 0;
     padding: 0 45px;
     border-right: 1px solid #777777;
@@ -110,6 +110,7 @@ a {
 
 .profile-below .right {
     display:flex;
+    
     justify-content:space-between;
     flex-direction: column;
     margin: 20px 0;
@@ -127,7 +128,7 @@ a {
     flex-wrap: wrap;
     
      
-    width: 50%;
+    width: 40%;
     margin: 20px 0;
     padding: 0 30px;
     flex-shrink: 0;
