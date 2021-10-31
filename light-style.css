@@ -112,6 +112,7 @@ a {
 
 .profile-below .right {
     display:flex;
+    width: auto;
     justify-content:space-between;
     flex-direction: column;
     margin: 20px 0;
