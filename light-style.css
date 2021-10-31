@@ -218,6 +218,12 @@ a {
     .profile-below .left {
         width: auto;
         border: 0;
+         display: flex;
+    margin: 20px 0;
+    padding: 0 30px;
+    flex-shrink: 0;
+    flex-direction: column;
+    justify-content: space-between;
     }
     .profile-below .right {
     display:flex;
