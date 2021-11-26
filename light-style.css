@@ -166,37 +166,28 @@ a {
 }
 
 .profile-below .right .link li:nth-child(3) a{
-    background: #6666FF;
-    box-shadow: 0 4px 20px rgb(139 88 226 / 70%);
-}
-
-.profile-below .right .link li:nth-child(3) a:hover {
-    box-shadow: 0 4px 20px rgb(139 88 226 / 70%);
-}
-
-.profile-below .right .link li:nth-child(4) a{
     background: #000;
     box-shadow: 0 4px 20px rgb(28 28 28 / 70%);
 }
 
-.profile-below .right .link li:nth-child(4) a:hover {
+.profile-below .right .link li:nth-child(3) a:hover {
     box-shadow: 0 4px 20px rgb(28 28 28 / 70%);
 }
 
-.profile-below .right .link li:nth-child(5) a{
+.profile-below .right .link li:nth-child(4) a{
     background: #ee3737;
     box-shadow: 0 4px 20px rgb(205 34 34 / 70%)
 }
 
-.profile-below .right .link li:nth-child(5) a:hover {
+.profile-below .right .link li:nth-child(4) a:hover {
     box-shadow: 0 4px 20px rgb(205 34 34 / 70%)
 }
-.profile-below .right .link li:nth-child(6) a{
+.profile-below .right .link li:nth-child(5) a{
     background: #000;
     box-shadow: 0 4px 20px rgb(28 28 28 / 70%);
 }
 
-.profile-below .right .link li:nth-child(6) a:hover {
+.profile-below .right .link li:nth-child(5) a:hover {
     box-shadow: 0 4px 20px rgb(28 28 28 / 70%)
 }
 @media screen and (max-width: 768px){
