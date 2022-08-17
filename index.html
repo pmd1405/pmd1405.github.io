@@ -182,12 +182,12 @@
             document.addEventListener('mousemove', play)
             document.addEventListener('mouseup', play)
             document.addEventListener('mousedown', play)
-            document.addEventListener('click', stop)
+            document.addEventListener('click', pause)
             function play() {
                 document.getElementById('audio').play();
             }
                         function stop() {
-                document.getElementById('audio').stop();
+                document.getElementById('audio').pause();
             }
         </script>
     </style>
