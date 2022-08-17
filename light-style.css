@@ -6,14 +6,14 @@ body {
 }
 
 h2 {
-    color: rgb(26, 26, 26);
+    color: rgb(255, 255, 255);
     font-size: 25px;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
 h3{
-    color: rgb(26, 26, 26);
+    color: rgb(255, 255, 255);
     margin-top: 0;
     font-size: 20px;
 }
@@ -34,8 +34,8 @@ a {
 
 .profile{
     max-width: 690px;
-    background-color: rgb(255 255 255 / 40%);
-    color: rgb(44, 44, 44);
+    background-color: rgb(255 255 255 / 10%);
+    color: rgb(255, 255, 255);
     margin: 20px;
     border-radius: 12px;
     font-size: 14px;
