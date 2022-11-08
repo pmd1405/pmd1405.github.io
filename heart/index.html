@@ -86,7 +86,7 @@ canvas {
  
  <BODY>
   <div style="display:none">
-    <audio id="audio" src="https://cdn.glitch.global/126c4a75-0595-4d47-935d-ff34612af89b/heart?v=1667904866450"
+    <audio id="audio" src="https://cdn.glitch.global/126c4a75-0595-4d47-935d-ff34612af89b/y2mate.com%20-%20saigon%20simple%20love%20%20eth%20ft%20nguy%C3%AAn%20%20speed%20up.mp3?v=1667904866450"
         controls="controls" autoplay></audio>
 </div>
    <div class="box">
@@ -323,14 +323,17 @@ var ParticlePool = (function() {
     render();
   }, 10);
 })(document.getElementById('pinkboard'));
-document.addEventListener('keydown', function (event) {
-              if (event.keyCode === 13) {
-                  play();
-              }
-          })
-          document.addEventListener('mousemove', play)
-          document.addEventListener('mouseup', play)
-          document.addEventListener('mousedown', play)
+ document.addEventListener('click', check)
+    function check() {
+        if (check == 1) {
+            check = 2;
+            document.getElementById('audio').play();
+        }
+        else {
+            check = 1;
+            document.getElementById('audio').pause();
+        }
+    }
   </script>
  </BODY>
 </HTML>
