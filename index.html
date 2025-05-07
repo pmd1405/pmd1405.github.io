@@ -7,7 +7,7 @@
     <meta name="keywords" content="Pham Minh Duy, procoder, DCSELAB, Minh Duy, 0833397519, 0706042940">
     <meta name="author" content="Pham Minh Duy">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Responsive -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -195,8 +195,13 @@
         <audio id="audio" src="https://cdn.glitch.global/f8b3e34c-c41b-4dfa-bff1-2523fe676b41/abcxyz?v=1660717129639"
             controls="controls" autoplay></audio>
     </div>
+    <p style="text-align: center; color: white;">
+        copyright © 2023 - <span id="year"></span> Pham Minh Duy.<br>All rights reserved.
+    </p>
+
     <script>
         document.addEventListener('click', check)
+
         function check() {
             if (check == 1) {
                 check = 2;
@@ -207,12 +212,51 @@
                 document.getElementById('audio').pause();
             }
         }
-    </script>
-    <p style="text-align: center; color: white;">
-        copyright © 2023 - <span id="year"></span> Pham Minh Duy.<br>All rights reserved.
-    </p>
-    <script>
+
         document.getElementById("year").textContent = new Date().getFullYear();
+
+        function showAlert(message) {
+            const defaultMsg = "This website and its source code are protected by copyright. Unauthorized access, modification, or reproduction is strictly prohibited and may violate applicable laws.";
+            document.getElementById('alertMsg').textContent = message || defaultMsg;
+            document.getElementById('customAlert').style.display = 'block';
+        }
+
+        function closeAlert() {
+            document.getElementById('customAlert').style.display = 'none';
+        }
+
+        // Ngăn chuột phải
+        document.addEventListener('contextmenu', e => {
+            e.preventDefault();
+            showAlert();
+        });
+
+        // Ngăn phím truy cập mã nguồn
+        document.addEventListener('keydown', e => {
+            const key = e.key.toUpperCase();
+            if (
+                e.keyCode === 123 || // F12
+                (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(key)) || // Ctrl+Shift+I/J/C
+                (e.ctrlKey && ['U', 'S'].includes(key)) // Ctrl+U/S
+            ) {
+                e.preventDefault();
+                showAlert();
+            }
+        });
+
+        // Ngăn sao chép, chọn, kéo
+        ['copy', 'selectstart', 'dragstart'].forEach(evt =>
+            document.addEventListener(evt, e => {
+                e.preventDefault();
+                if (evt === 'copy') showAlert("Copying content is disabled.");
+            })
+        ); 
     </script>
+    
+    <div id="customAlert" class="alert">
+        <p id="alertMsg"></p>
+        <button onclick="closeAlert()">Close</button>
+    </div>
+
 
 </html>
