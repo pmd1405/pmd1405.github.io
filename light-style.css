@@ -26,11 +26,19 @@ a {
 }
 
 .wrap {
-    min-height: 100vh;
+    min-height: 92.5vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    background-color: #000;
+    padding: 10px 0;
+    font-size: 14px;
 }
 
 .profile {
