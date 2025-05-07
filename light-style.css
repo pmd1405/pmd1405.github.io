@@ -194,3 +194,32 @@ a {
         border: none;
     }
 }
+
+.alert {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffdddd;
+    color: #a00;
+    border: 1px solid #f5c2c7;
+    padding: 15px 20px;
+    border-radius: 8px;
+    z-index: 9999;
+    font-family: sans-serif;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.alert button {
+    background: #a00;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.alert button:hover {
+    background: #d00;
+}
