@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8" />
     <title>Minh Duy Pham | Mechanical Design Engineer</title>
     <meta name="description" content="Portfolio Phạm Minh Duy.">
     <meta name="keywords" content="Pham Minh Duy, procoder, DCSELAB, Minh Duy, 0833397519, 0706042940">
@@ -9,13 +10,12 @@
     <meta name="robots" content="index, follow">
 
     <!-- Responsive -->
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Pham Minh Duy">
 
     <meta property="og:title" content="Pham Minh Duy | Mechanical Design Engineer">
     <meta property="og:description" content="Portfolio Phạm Minh Duy.">
-    <meta property="og:image" content="08fdf5442698e5c6bc89 (1).jpg"> <!-- Thay ảnh đại diện -->
+    <meta property="og:image" content="https://pmd1405.github.io/08fdf5442698e5c6bc89 (1).jpg">
+    <!-- Thay ảnh đại diện -->
     <meta property="og:url" content="https://pmd1405.github.io/">
     <meta property="og:type" content="website">
 
@@ -62,57 +62,12 @@
 </head>
 
 <body>
-    <script>
-        function getColorByHue(hueOffset = 0) {
-            const baseHue = Math.floor(Math.random() * 360);
-            const hue = (baseHue + hueOffset) % 360;
-            const saturation = 70 + Math.floor(Math.random() * 10);
-            const lightness = 70 + Math.floor(Math.random() * 10);
-            return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-        }
-
-        function setAnimatedGradient() {
-            const color1 = getColorByHue(0);
-            const color2 = getColorByHue(40);
-            document.body.style.background = `linear-gradient(135deg, ${color1}, ${color2})`;
-            document.body.style.backgroundSize = '400% 400%';
-            document.body.style.animation = 'gradientMove 10s ease infinite';
-        }
-
-        // Gọi khi tải trang
-        setAnimatedGradient();
-    </script>
-
-    <script src="dist/sakura.js" text="text/javascript"></script>
-    <script>
-        var sakura = new Sakura('body', {
-            colors: [
-                {
-                    gradientColorStart: '#FFFFFF',
-                    gradientColorEnd: '#FFFFFF',
-                    gradientColorDegree: 120,
-                },
-                {
-                    gradientColorStart: '#FFFFFF',
-                    gradientColorEnd: '#FFFFFF',
-                    gradientColorDegree: 120,
-                },
-                {
-                    gradientColorStart: '#FFFFFF',
-                    gradientColorEnd: '#FFFFFF',
-                    gradientColorDegree: 120,
-                },
-            ],
-            delay: 300,
-        });
-    </script>
-
     <div class="wrap">
         <div class="profile">
             <div class="profile-above">
                 <div class="avatar">
                     <a href="08fdf5442698e5c6bc89 (1).jpg" target="_blank">
-                        <img src="08fdf5442698e5c6bc89 (1).jpg">
+                        <img src="08fdf5442698e5c6bc89 (1).jpg" loading="lazy">
                     </a>
                 </div>
                 <div class="info">
@@ -199,7 +154,7 @@
                             </p>
                             <p style="text-align:center;">
                                 <a href="52372e5d2bbce8e2b1ad.jpg" target="_blank">
-                                    <img src="52372e5d2bbce8e2b1ad.jpg" style="width:300px;height:400px">
+                                    <img src="52372e5d2bbce8e2b1ad.jpg" style="width:300px;height:400px" loading="lazy">
                                 </a>
                             <p>
                                 One of my favorite quotes is: <br>"Loneliness is the poverty of self,<br> Solitude is
@@ -208,7 +163,7 @@
                             </p>
                             <p style="text-align:center;">
                                 <a href="63b2fcf34f2f8c71d53e.jpg" target="_blank">
-                                    <img src="63b2fcf34f2f8c71d53e.jpg" style="width:300px;height:400px">
+                                    <img src="63b2fcf34f2f8c71d53e.jpg" style="width:300px;height:400px" loading="lazy">
                                 </a>
                             </p>
                         </marquee>
@@ -234,20 +189,45 @@
                 </div>
             </div>
         </div>
+        <div style="display:none">
+            <audio id="audio"
+                src="https://cdn.glitch.global/f8b3e34c-c41b-4dfa-bff1-2523fe676b41/abcxyz?v=1660717129639"
+                controls="controls" autoplay></audio>
+        </div>
     </div>
-
     <footer>
         Copyright © 2021 - <span id="year"></span> Pham Minh Duy.<br>All rights reserved.
     </footer>
 
-    <div style="display:none">
-        <audio id="audio" src="https://cdn.glitch.global/f8b3e34c-c41b-4dfa-bff1-2523fe676b41/abcxyz?v=1660717129639"
-            controls="controls" autoplay></audio>
+    <div id="customAlert" class="alert">
+        <p id="alertMsg"></p>
+        <button onclick="closeAlert()">Close</button>
     </div>
-    
+
+    <script>
+        function getColorByHue(hueOffset = 0) {
+            const baseHue = Math.floor(Math.random() * 360);
+            const hue = (baseHue + hueOffset) % 360;
+            const saturation = 70 + Math.floor(Math.random() * 10);
+            const lightness = 70 + Math.floor(Math.random() * 10);
+            return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+        }
+
+        function setAnimatedGradient() {
+            const color1 = getColorByHue(0);
+            const color2 = getColorByHue(40);
+            document.body.style.background = `linear-gradient(135deg, ${color1}, ${color2})`;
+            document.body.style.backgroundSize = '400% 400%';
+            document.body.style.animation = 'gradientMove 10s ease infinite';
+        }
+
+        // Gọi khi tải trang
+        setAnimatedGradient();
+    </script>
+
     <script>
         const audio = document.getElementById('audio');
-        
+
         // Audio toggle state
         let isAudioPlaying = false;
 
@@ -297,10 +277,30 @@
         ); 
     </script>
 
-    <div id="customAlert" class="alert">
-        <p id="alertMsg"></p>
-        <button onclick="closeAlert()">Close</button>
-    </div>
+    <script src="dist/sakura.js" type="text/javascript"></script>
+    <script>
+        var sakura = new Sakura('body', {
+            colors: [
+                {
+                    gradientColorStart: '#FFFFFF',
+                    gradientColorEnd: '#FFFFFF',
+                    gradientColorDegree: 120,
+                },
+                {
+                    gradientColorStart: '#FFFFFF',
+                    gradientColorEnd: '#FFFFFF',
+                    gradientColorDegree: 120,
+                },
+                {
+                    gradientColorStart: '#FFFFFF',
+                    gradientColorEnd: '#FFFFFF',
+                    gradientColorDegree: 120,
+                },
+            ],
+            delay: 300,
+        });
+    </script>
 
+</body>
 
 </html>
