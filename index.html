@@ -28,8 +28,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="dist/sakura.css" />
     <link rel="stylesheet" href="./light-style.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
 
     <style>
         body {
@@ -59,10 +62,6 @@
 </head>
 
 <body>
-    <div style="display:none">
-        byte check = 1;
-    </div>
-
     <script>
         function getColorByHue(hueOffset = 0) {
             const baseHue = Math.floor(Math.random() * 360);
@@ -245,18 +244,16 @@
     </p>
 
     <script>
-        document.addEventListener('click', check)
+        const audio = document.getElementById('audio');
+        
+        // Audio toggle state
+        let isAudioPlaying = false;
 
-        function check() {
-            if (check == 1) {
-                check = 2;
-                document.getElementById('audio').play();
-            }
-            else {
-                check = 1;
-                document.getElementById('audio').pause();
-            }
-        }
+        // Audio toggle handler
+        document.addEventListener('click', () => {
+            isAudioPlaying = !isAudioPlaying;
+            isAudioPlaying ? audio.play() : audio.pause();
+        });
 
         document.getElementById("year").textContent = new Date().getFullYear();
 
