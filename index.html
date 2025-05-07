@@ -190,9 +190,10 @@
             </div>
         </div>
         <div style="display:none">
-            <audio id="audio"
-                src="https://cdn.glitch.global/f8b3e34c-c41b-4dfa-bff1-2523fe676b41/abcxyz?v=1660717129639"
-                controls="controls" autoplay></audio>
+            <audio id="audio" preload="auto">
+                <source src="https://cdn.glitch.global/f8b3e34c-c41b-4dfa-bff1-2523fe676b41/abcxyz?v=1660717129639"
+                    type="audio/mp3">
+            </audio>
         </div>
     </div>
     <footer>
@@ -204,103 +205,9 @@
         <button onclick="closeAlert()">Close</button>
     </div>
 
-    <script>
-        function getColorByHue(hueOffset = 0) {
-            const baseHue = Math.floor(Math.random() * 360);
-            const hue = (baseHue + hueOffset) % 360;
-            const saturation = 70 + Math.floor(Math.random() * 10);
-            const lightness = 70 + Math.floor(Math.random() * 10);
-            return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-        }
-
-        function setAnimatedGradient() {
-            const color1 = getColorByHue(0);
-            const color2 = getColorByHue(40);
-            document.body.style.background = `linear-gradient(135deg, ${color1}, ${color2})`;
-            document.body.style.backgroundSize = '400% 400%';
-            document.body.style.animation = 'gradientMove 10s ease infinite';
-        }
-
-        // Gọi khi tải trang
-        setAnimatedGradient();
-    </script>
-
-    <script>
-        const audio = document.getElementById('audio');
-
-        // Audio toggle state
-        let isAudioPlaying = false;
-
-        // Audio toggle handler
-        document.addEventListener('click', () => {
-            isAudioPlaying = !isAudioPlaying;
-            isAudioPlaying ? audio.play() : audio.pause();
-        });
-
-        document.getElementById("year").textContent = new Date().getFullYear();
-
-        function showAlert(message) {
-            const defaultMsg = "This website and its source code are protected by copyright. Unauthorized access, modification, or reproduction is strictly prohibited and may violate applicable laws.";
-            document.getElementById('alertMsg').textContent = message || defaultMsg;
-            document.getElementById('customAlert').style.display = 'block';
-        }
-
-        function closeAlert() {
-            document.getElementById('customAlert').style.display = 'none';
-        }
-
-        // Ngăn chuột phải
-        document.addEventListener('contextmenu', e => {
-            e.preventDefault();
-            showAlert();
-        });
-
-        // Ngăn phím truy cập mã nguồn
-        document.addEventListener('keydown', e => {
-            const key = e.key.toUpperCase();
-            if (
-                e.keyCode === 123 || // F12
-                (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(key)) || // Ctrl+Shift+I/J/C
-                (e.ctrlKey && ['U', 'S'].includes(key)) // Ctrl+U/S
-            ) {
-                e.preventDefault();
-                showAlert();
-            }
-        });
-
-        // Ngăn sao chép, chọn, kéo
-        ['copy', 'selectstart', 'dragstart'].forEach(evt =>
-            document.addEventListener(evt, e => {
-                e.preventDefault();
-                if (evt === 'copy') showAlert("Copying content is disabled.");
-            })
-        ); 
-    </script>
-
+    <!-- Nhúng file JS -->
     <script src="dist/sakura.js" type="text/javascript"></script>
-    <script>
-        var sakura = new Sakura('body', {
-            colors: [
-                {
-                    gradientColorStart: '#FFFFFF',
-                    gradientColorEnd: '#FFFFFF',
-                    gradientColorDegree: 120,
-                },
-                {
-                    gradientColorStart: '#FFFFFF',
-                    gradientColorEnd: '#FFFFFF',
-                    gradientColorDegree: 120,
-                },
-                {
-                    gradientColorStart: '#FFFFFF',
-                    gradientColorEnd: '#FFFFFF',
-                    gradientColorDegree: 120,
-                },
-            ],
-            delay: 300,
-        });
-    </script>
+    <script src="scripts.js"></script>
 
 </body>
-
 </html>
