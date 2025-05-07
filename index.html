@@ -28,17 +28,62 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="dist/sakura.css" />
     <link rel="stylesheet" href="./light-style.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, hsl(200, 70%, 75%), hsl(240, 70%, 75%));
+            background-size: 400% 400%;
+            animation: gradientMove 10s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
     <div style="display:none">
         byte check = 1;
     </div>
+
+    <script>
+        function getColorByHue(hueOffset = 0) {
+            const baseHue = Math.floor(Math.random() * 360);
+            const hue = (baseHue + hueOffset) % 360;
+            const saturation = 70 + Math.floor(Math.random() * 10);
+            const lightness = 70 + Math.floor(Math.random() * 10);
+            return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+        }
+
+        function setAnimatedGradient() {
+            const color1 = getColorByHue(0);
+            const color2 = getColorByHue(40);
+            document.body.style.background = `linear-gradient(135deg, ${color1}, ${color2})`;
+            document.body.style.backgroundSize = '400% 400%';
+            document.body.style.animation = 'gradientMove 10s ease infinite';
+        }
+
+        // Gọi khi tải trang
+        setAnimatedGradient();
+    </script>
+
     <script src="dist/sakura.js" text="text/javascript"></script>
     <script>
         var sakura = new Sakura('body', {
@@ -76,7 +121,7 @@
                     <div class="info-maxim">
                         <marquee behavior="slide" direction="up" scrollamount="1" scrolldelay="20">
                             <i class="fad fa-comment-lines"></i>
-                            <b> Tôi không bao giờ mê tín ! <br> &emsp; Tôi mê em :)))
+                            <b> Tôi không bao giờ mê tín ... <br> &emsp; Tôi mê em !
                         </marquee>
                     </div>
                     <b>
@@ -196,7 +241,7 @@
             controls="controls" autoplay></audio>
     </div>
     <p style="text-align: center; color: white;">
-        copyright © 2023 - <span id="year"></span> Pham Minh Duy.<br>All rights reserved.
+        Copyright © 2023 - <span id="year"></span> Pham Minh Duy.<br>All rights reserved.
     </p>
 
     <script>
@@ -252,7 +297,7 @@
             })
         ); 
     </script>
-    
+
     <div id="customAlert" class="alert">
         <p id="alertMsg"></p>
         <button onclick="closeAlert()">Close</button>
