@@ -500,8 +500,8 @@
       return;
     }
 
-    title.textContent = track.title;
-    kicker.textContent = track.artist;
+    title.textContent = track.title.toLocaleUpperCase('vi-VN');
+    kicker.textContent = track.artist.toLocaleUpperCase('vi-VN');
     status.textContent = playlist.playing ? 'Đang phát' : 'Sẵn sàng phát';
 
     if ('mediaSession' in navigator && typeof window.MediaMetadata === 'function') {

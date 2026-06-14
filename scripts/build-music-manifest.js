@@ -106,19 +106,25 @@ function toUrl(filePath) {
   return relative.map(segment => encodeURIComponent(segment)).join('/');
 }
 
+function uppercase(value) {
+  return String(value || '').trim().toLocaleUpperCase('vi-VN');
+}
+
 fs.mkdirSync(musicDirectory, { recursive: true });
 
 const files = walk(musicDirectory)
   .filter(filePath => path.extname(filePath).toLowerCase() === '.mp3')
   .sort((first, second) => first.localeCompare(second, 'vi'));
 
-const tracks = files.map((filePath, index) => {
+const tracks = files.map(filePath => {
   const metadata = readId3(filePath);
+  const fileName = path.basename(filePath, path.extname(filePath));
+
   return {
     src: toUrl(filePath),
-    title: metadata.title || `Track ${String(index + 1).padStart(2, '0')}`,
-    artist: metadata.artist || 'Local MP3',
-    album: metadata.album || 'Portfolio playlist',
+    title: uppercase(fileName),
+    artist: uppercase(metadata.artist || 'Local MP3'),
+    album: uppercase(metadata.album || 'Portfolio playlist'),
   };
 });
 
