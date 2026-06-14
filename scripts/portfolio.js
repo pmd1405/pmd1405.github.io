@@ -277,6 +277,205 @@
     }
   }
 
+  class SakuraField {
+    constructor(canvas) {
+      this.canvas = canvas;
+      this.context = canvas.getContext('2d');
+      this.petals = [];
+      this.frame = null;
+      this.lastTime = 0;
+      this.time = 0;
+      this.running = true;
+      this.blockers = [];
+      this.layoutFrame = null;
+      this.resize = this.resize.bind(this);
+      this.draw = this.draw.bind(this);
+      this.queueBlockerRefresh = this.queueBlockerRefresh.bind(this);
+
+      this.resize();
+      window.addEventListener('resize', this.resize, { passive: true });
+      window.addEventListener('scroll', this.queueBlockerRefresh, { passive: true });
+      document.addEventListener('visibilitychange', () => {
+        this.running = !document.hidden;
+        if (this.running && !this.frame) {
+          this.lastTime = performance.now();
+          this.frame = window.requestAnimationFrame(this.draw);
+        }
+      });
+      this.frame = window.requestAnimationFrame(this.draw);
+    }
+
+    queueBlockerRefresh() {
+      if (this.layoutFrame) {
+        return;
+      }
+      this.layoutFrame = window.requestAnimationFrame(() => {
+        this.refreshBlockers();
+        this.layoutFrame = null;
+      });
+    }
+
+    refreshBlockers() {
+      const selector = [
+        '.site-header',
+        '.hero-copy',
+        '.portrait-frame',
+        '.portrait-note',
+        '.hero-specs',
+        '.section-intro',
+        '.section-heading',
+        '.about-copy > p',
+        '.career-record',
+        '.method-flow',
+        '.focus-card',
+        '.profile-band',
+        '.publication-toolbar',
+        '.publication-card',
+        '.publication-empty',
+        '.gallery-card',
+        '.contact',
+        '.site-footer',
+        '.music-player',
+        '.sound-hint',
+      ].join(',');
+
+      this.blockers = [...document.querySelectorAll(selector)]
+        .map(element => element.getBoundingClientRect())
+        .filter(rect => rect.bottom >= 0 && rect.top <= this.height)
+        .map(rect => ({
+          left: Math.max(0, rect.left),
+          top: Math.max(0, rect.top),
+          width: Math.min(this.width, rect.right) - Math.max(0, rect.left),
+          height: Math.min(this.height, rect.bottom) - Math.max(0, rect.top),
+        }));
+    }
+
+    occludeContent() {
+      this.blockers.forEach(rect => {
+        if (rect.width > 0 && rect.height > 0) {
+          this.context.clearRect(rect.left, rect.top, rect.width, rect.height);
+        }
+      });
+    }
+
+    createPetal(initial = false) {
+      const scale = 0.58 + Math.random() * 0.82;
+      return {
+        x: Math.random() * this.width,
+        y: initial ? Math.random() * this.height : -30 - Math.random() * 160,
+        size: (5.5 + Math.random() * 5.5) * scale,
+        speed: 18 + Math.random() * 30,
+        drift: 13 + Math.random() * 26,
+        phase: Math.random() * Math.PI * 2,
+        spin: Math.random() * Math.PI * 2,
+        spinSpeed: (Math.random() - 0.5) * 1.45,
+        depth: 0.52 + Math.random() * 0.48,
+        color: Math.floor(Math.random() * 3),
+      };
+    }
+
+    resize() {
+      const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
+      this.width = window.innerWidth;
+      this.height = window.innerHeight;
+      this.canvas.width = Math.round(this.width * ratio);
+      this.canvas.height = Math.round(this.height * ratio);
+      this.canvas.style.width = `${this.width}px`;
+      this.canvas.style.height = `${this.height}px`;
+      this.context.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+      const targetCount = Math.max(
+        10,
+        Math.min(this.width < 650 ? 14 : 26, Math.round(this.width / 58)),
+      );
+      if (this.petals.length > targetCount) {
+        this.petals.length = targetCount;
+      }
+      while (this.petals.length < targetCount) {
+        this.petals.push(this.createPetal(true));
+      }
+      this.refreshBlockers();
+    }
+
+    drawPetal(petal) {
+      const context = this.context;
+      const palette = [
+        ['rgba(240, 224, 229, 0.68)', 'rgba(191, 155, 169, 0.42)'],
+        ['rgba(226, 235, 239, 0.62)', 'rgba(142, 177, 190, 0.38)'],
+        ['rgba(236, 218, 225, 0.58)', 'rgba(184, 160, 107, 0.3)'],
+      ];
+      const [fill, edge] = palette[petal.color];
+      const flatten = 0.28 + Math.abs(Math.sin(petal.spin)) * 0.72;
+
+      context.save();
+      context.translate(petal.x, petal.y);
+      context.rotate(petal.spin);
+      context.scale(1, flatten);
+      context.globalAlpha = petal.depth;
+      context.beginPath();
+      context.moveTo(0, -petal.size);
+      context.bezierCurveTo(
+        petal.size * 0.92,
+        -petal.size * 0.58,
+        petal.size * 0.78,
+        petal.size * 0.7,
+        0,
+        petal.size,
+      );
+      context.bezierCurveTo(
+        -petal.size * 0.78,
+        petal.size * 0.7,
+        -petal.size * 0.92,
+        -petal.size * 0.58,
+        0,
+        -petal.size,
+      );
+      context.fillStyle = fill;
+      context.fill();
+      context.strokeStyle = edge;
+      context.lineWidth = 0.65;
+      context.stroke();
+      context.beginPath();
+      context.moveTo(0, -petal.size * 0.65);
+      context.lineTo(0, petal.size * 0.68);
+      context.strokeStyle = 'rgba(255, 255, 255, 0.18)';
+      context.stroke();
+      context.restore();
+    }
+
+    draw(timestamp) {
+      this.frame = null;
+      if (!this.running) {
+        return;
+      }
+
+      const delta = Math.min(40, timestamp - this.lastTime || 16) / 1000;
+      this.lastTime = timestamp;
+      this.time += delta;
+      this.context.clearRect(0, 0, this.width, this.height);
+
+      this.petals.forEach((petal, index) => {
+        petal.phase += delta * (0.65 + petal.depth * 0.55);
+        petal.spin += delta * petal.spinSpeed;
+        petal.y += petal.speed * petal.depth * delta;
+        petal.x +=
+          (Math.sin(petal.phase) * petal.drift +
+            7 +
+            Math.sin(this.time * 0.24) * 5) *
+          delta;
+
+        if (petal.y > this.height + 40 || petal.x > this.width + 70) {
+          this.petals[index] = this.createPetal();
+        } else {
+          this.drawPetal(petal);
+        }
+      });
+
+      this.occludeContent();
+      this.frame = window.requestAnimationFrame(this.draw);
+    }
+  }
+
   const tracks = Array.isArray(window.__PORTFOLIO_TRACKS__)
     ? window.__PORTFOLIO_TRACKS__
     : [];
@@ -470,6 +669,12 @@
     new MotionField(canvas);
   }
 
+  const sakuraCanvas = document.querySelector('.sakura-canvas');
+  let sakuraField = null;
+  if (sakuraCanvas && !reduceMotion.matches) {
+    sakuraField = new SakuraField(sakuraCanvas);
+  }
+
   const year = document.querySelector('#current-year');
   if (year) {
     year.textContent = new Date().getFullYear();
@@ -624,6 +829,7 @@
   }
 
   renderPublications();
+  sakuraField?.queueBlockerRefresh();
 
   function alignHashTarget() {
     if (!window.location.hash) {
