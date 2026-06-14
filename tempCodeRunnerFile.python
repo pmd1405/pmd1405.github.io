@@ -1,0 +1,7 @@
+#included <math.h>
+from re import X
+
+
+print("hehlo")
+X=0
+print(X)

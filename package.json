@@ -1,0 +1,13 @@
+{
+  "name": "pmd-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Personal portfolio for Pham Minh Duy.",
+  "scripts": {
+    "music:index": "node scripts/build-music-manifest.js",
+    "papers:index": "node scripts/build-paper-manifest.js",
+    "build": "npm run music:index && npm run papers:index",
+    "check": "npm run build && node --check scripts/portfolio.js && node --check scripts/build-music-manifest.js && node --check scripts/build-paper-manifest.js"
+  },
+  "license": "MIT"
+}

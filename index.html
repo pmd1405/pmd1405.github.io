@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta
+    name="description"
+    content="Portfolio của Phạm Minh Duy, kỹ sư cơ khí chuyên ngành thiết kế máy, quan tâm đến nghiên cứu, AI và tự động hóa."
+  >
+  <meta name="theme-color" content="#0a0f14">
+  <title>Phạm Minh Duy | Mechanical Design Engineer</title>
+
+  <link rel="icon" type="image/webp" href="assets/favicon.webp">
+  <link rel="preload" as="image" href="assets/images/portrait.jpg">
+  <link rel="stylesheet" href="light-style.css">
+  <script src="scripts/music-manifest.js" defer></script>
+  <script src="scripts/paper-manifest.js" defer></script>
+  <script src="scripts/portfolio.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Đi đến nội dung chính</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <div class="ambient-scene" aria-hidden="true">
+    <canvas class="motion-canvas"></canvas>
+    <span class="ambient-glow"></span>
+    <span class="ambient-beam"></span>
+  </div>
+
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Trang chủ của Phạm Minh Duy">
+        <span class="brand-mark">PMD</span>
+        <span class="brand-copy">
+          <strong>Engineering Portfolio</strong>
+          <small>Machine Design / R&amp;D</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Điều hướng chính">
+        <a href="#about">Hồ sơ</a>
+        <a href="#focus">Năng lực</a>
+        <a href="#publications">Công bố</a>
+        <a href="#gallery">Góc nhìn</a>
+        <a href="#contact">Liên hệ</a>
+      </nav>
+
+      <button class="header-sound" type="button" data-audio-toggle aria-label="Bật nhạc nền" aria-pressed="false">
+        <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="header-sound-label">Sound off</span>
+      </button>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span>ME-01</span> Mechanical Design Engineer</p>
+          <h1 id="hero-title">Phạm Minh Duy<span>.</span></h1>
+          <p class="hero-intro">
+            Kỹ sư cơ khí chuyên ngành <strong>thiết kế máy</strong>, theo đuổi cách tiếp cận
+            có hệ thống từ bài toán, mô hình, cơ cấu đến giải pháp có thể chế tạo. Tôi quan
+            tâm đến nghiên cứu, tự động hóa và ứng dụng AI để nâng cao chất lượng thiết kế.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#focus">Xem năng lực</a>
+            <a class="button button-secondary" href="mailto:manhhohoang11@gmail.com">Trao đổi kỹ thuật</a>
+          </div>
+
+          <dl class="hero-specs" aria-label="Thông tin chuyên môn">
+            <div>
+              <dt>Discipline</dt>
+              <dd>Machine Design</dd>
+            </div>
+            <div>
+              <dt>Approach</dt>
+              <dd>Systems &amp; Research</dd>
+            </div>
+            <div>
+              <dt>Direction</dt>
+              <dd>AI &amp; Automation</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-visual">
+          <div class="technical-frame" aria-hidden="true">
+            <span class="axis axis-x">X</span>
+            <span class="axis axis-y">Y</span>
+            <span class="dimension dimension-width">W 900</span>
+            <span class="dimension dimension-height">H 1200</span>
+            <span class="datum datum-a">A</span>
+            <span class="datum datum-b">B</span>
+          </div>
+
+          <div class="portrait-frame" data-tilt>
+            <img
+              src="assets/images/portrait.jpg"
+              width="900"
+              height="1201"
+              alt="Phạm Minh Duy trong hành lang"
+              fetchpriority="high"
+            >
+            <span class="portrait-scan" aria-hidden="true"></span>
+            <div class="portrait-data" aria-hidden="true">
+              <span>SUBJECT / PMD</span>
+              <span>FIELD / MECHANICAL</span>
+              <span>STATUS / ACTIVE</span>
+            </div>
+          </div>
+
+          <p class="portrait-note">
+            <span>Fig. 01 / Engineer profile</span>
+            <span>HCMC, VN</span>
+          </p>
+        </div>
+      </section>
+
+      <section class="discipline-strip" aria-label="Lĩnh vực quan tâm">
+        <span>Machine Design</span>
+        <span>CAD / CAE</span>
+        <span>Mechanism</span>
+        <span>Research</span>
+        <span>Automation</span>
+        <span>AI-assisted Engineering</span>
+      </section>
+
+      <section class="section about" id="about" aria-labelledby="about-title" data-reveal>
+        <div class="section-intro">
+          <p class="section-label">01 / Engineering profile</p>
+          <h2 id="about-title">Tư duy kỹ thuật,<br>không chỉ công cụ.</h2>
+        </div>
+
+        <div class="about-copy">
+          <p class="lead">
+            Tôi nhìn thiết kế máy như một quá trình ra quyết định có kiểm chứng: hiểu yêu
+            cầu, phân rã chức năng, xây dựng cơ cấu, đánh giá rủi ro và lặp lại bằng dữ liệu.
+          </p>
+          <p>
+            Khoa học và nghiên cứu giúp tôi đặt câu hỏi tốt hơn. AI và tự động hóa là công
+            cụ để tăng tốc phân tích, chuẩn hóa tác vụ và mở rộng khả năng của người kỹ sư,
+            không thay thế tư duy nền tảng.
+          </p>
+
+          <div class="method-flow" aria-label="Quy trình tư duy thiết kế">
+            <div><span>01</span><strong>Define</strong><small>Xác định bài toán</small></div>
+            <div><span>02</span><strong>Model</strong><small>Mô hình hóa hệ thống</small></div>
+            <div><span>03</span><strong>Validate</strong><small>Kiểm chứng giả thuyết</small></div>
+            <div><span>04</span><strong>Iterate</strong><small>Tối ưu và hoàn thiện</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section focus-section" id="focus" aria-labelledby="focus-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">02 / Technical focus</p>
+            <h2 id="focus-title">Lĩnh vực tôi tập trung</h2>
+          </div>
+          <p class="section-summary">
+            Giao điểm giữa cơ khí nền tảng, nghiên cứu ứng dụng và công nghệ hỗ trợ kỹ thuật.
+          </p>
+        </div>
+
+        <div class="focus-grid">
+          <article class="focus-card" data-reveal data-tilt>
+            <div class="focus-diagram diagram-mechanism" aria-hidden="true">
+              <span class="joint joint-a"></span><span class="joint joint-b"></span>
+              <span class="link link-a"></span><span class="link link-b"></span>
+              <span class="rotation"></span>
+            </div>
+            <span class="focus-code">MD / 01</span>
+            <h3>Thiết kế máy &amp; cơ cấu</h3>
+            <p>
+              Phân tích chức năng, xây dựng nguyên lý, thiết kế chi tiết và cân bằng giữa
+              hiệu năng, độ tin cậy, khả năng chế tạo và bảo trì.
+            </p>
+            <ul><li>Machine elements</li><li>Mechanism design</li><li>DFM / DFA</li></ul>
+          </article>
+
+          <article class="focus-card" data-reveal data-reveal-delay="70" data-tilt>
+            <div class="focus-diagram diagram-research" aria-hidden="true">
+              <span class="curve"></span><span class="sample sample-a"></span>
+              <span class="sample sample-b"></span><span class="sample sample-c"></span>
+              <span class="axis-line axis-line-x"></span><span class="axis-line axis-line-y"></span>
+            </div>
+            <span class="focus-code">R&amp;D / 02</span>
+            <h3>Mô phỏng &amp; nghiên cứu</h3>
+            <p>
+              Chuyển giả thuyết thành mô hình, thiết lập tiêu chí đánh giá và dùng kết quả
+              phân tích để định hướng quyết định thiết kế.
+            </p>
+            <ul><li>Engineering analysis</li><li>CAE thinking</li><li>Validation</li></ul>
+          </article>
+
+          <article class="focus-card" data-reveal data-reveal-delay="120" data-tilt>
+            <div class="focus-diagram diagram-automation" aria-hidden="true">
+              <span class="block block-a">S</span><span class="block block-b">C</span>
+              <span class="block block-c">A</span><span class="signal signal-a"></span>
+              <span class="signal signal-b"></span>
+            </div>
+            <span class="focus-code">AUT / 03</span>
+            <h3>Tự động hóa hệ thống</h3>
+            <p>
+              Quan tâm đến cách cảm biến, điều khiển và cơ cấu chấp hành kết hợp thành một
+              hệ thống vận hành ổn định, có thể đo lường và cải tiến.
+            </p>
+            <ul><li>System integration</li><li>Control logic</li><li>Workflow</li></ul>
+          </article>
+
+          <article class="focus-card" data-reveal data-reveal-delay="180" data-tilt>
+            <div class="focus-diagram diagram-ai" aria-hidden="true">
+              <span class="node node-a"></span><span class="node node-b"></span>
+              <span class="node node-c"></span><span class="node node-d"></span>
+              <span class="neural-line neural-a"></span><span class="neural-line neural-b"></span>
+              <span class="neural-line neural-c"></span>
+            </div>
+            <span class="focus-code">AI / 04</span>
+            <h3>AI hỗ trợ kỹ thuật</h3>
+            <p>
+              Khai thác AI cho nghiên cứu tài liệu, quản lý tri thức, tự động hóa tác vụ và
+              hỗ trợ khám phá phương án trong quy trình thiết kế.
+            </p>
+            <ul><li>Knowledge workflow</li><li>Design support</li><li>Automation</li></ul>
+          </article>
+        </div>
+
+        <div class="profile-band" data-reveal>
+          <div><span>Education</span><strong>ĐH Bách Khoa, ĐHQG-HCM</strong></div>
+          <div><span>Location</span><strong>TP. Hồ Chí Minh</strong></div>
+          <div><span>Contact</span><strong><a href="mailto:manhhohoang11@gmail.com">Email</a></strong></div>
+          <div><span>Repository</span><strong><a href="https://github.com/pmd1405" target="_blank" rel="noopener noreferrer">GitHub</a></strong></div>
+        </div>
+      </section>
+
+      <section class="section publications-section" id="publications" aria-labelledby="publications-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">03 / Publications</p>
+            <h2 id="publications-title">Nghiên cứu &amp; công bố</h2>
+          </div>
+          <p class="section-summary">
+            Hồ sơ các bài báo, báo cáo kỹ thuật và công trình nghiên cứu, được lập chỉ mục
+            tự động từ thư mục paper.
+          </p>
+        </div>
+
+        <div class="publication-toolbar" data-publication-toolbar hidden>
+          <p><strong data-paper-count>0</strong> công trình đã lập chỉ mục</p>
+          <div class="publication-filters" data-paper-filters aria-label="Lọc công bố theo loại"></div>
+        </div>
+
+        <div class="publication-list" data-publication-list aria-live="polite">
+          <div class="publication-empty">
+            <span>PUBLICATION DATABASE / READY</span>
+            <h3>Chưa có paper được lập chỉ mục</h3>
+            <p>
+              Thêm PDF vào <code>papers/</code> hoặc <code>paper/</code>, sau đó chạy
+              <code>npm run build</code>. Giao diện sẽ được tạo tự động.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="gallery" aria-labelledby="gallery-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">04 / Observation</p>
+            <h2 id="gallery-title">Góc nhìn ngoài bản vẽ</h2>
+          </div>
+          <p class="section-summary">
+            Quan sát nghệ thuật và không gian cũng là cách rèn luyện cảm nhận về hình khối,
+            tỷ lệ, cấu trúc và con người.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="gallery-card" data-reveal>
+            <img
+              src="assets/images/gallery-art.jpg"
+              width="900"
+              height="1200"
+              alt="Phạm Minh Duy quan sát một tác phẩm nghệ thuật"
+              loading="lazy"
+              decoding="async"
+            >
+            <figcaption><span>Observation / Form &amp; context</span><span>FIG. 02</span></figcaption>
+          </figure>
+
+          <figure class="gallery-card gallery-card-offset" data-reveal data-reveal-delay="120">
+            <img
+              src="assets/images/gallery-museum.jpg"
+              width="900"
+              height="1200"
+              alt="Phạm Minh Duy trong không gian triển lãm"
+              loading="lazy"
+              decoding="async"
+            >
+            <figcaption><span>Study / Space &amp; perception</span><span>FIG. 03</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="contact section" id="contact" aria-labelledby="contact-title" data-reveal>
+        <p class="section-label">05 / Contact</p>
+        <h2 id="contact-title">Cùng giải một bài toán đáng làm.</h2>
+        <p>
+          Tôi sẵn sàng trao đổi về thiết kế máy, ý tưởng nghiên cứu, tự động hóa hoặc những
+          ứng dụng AI có giá trị thực tế cho kỹ thuật.
+        </p>
+        <a class="contact-email" href="mailto:manhhohoang11@gmail.com">manhhohoang11@gmail.com</a>
+        <div class="social-links" aria-label="Mạng xã hội">
+          <a href="https://github.com/pmd1405" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.facebook.com/profile.php?id=75816879" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://zalo.me/0833397519" target="_blank" rel="noopener noreferrer">Zalo</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="current-year">2026</span> Phạm Minh Duy.</p>
+      <p class="footer-system">SYSTEM STATUS <span>ONLINE</span></p>
+      <a href="#top">Về đầu trang ↑</a>
+    </footer>
+  </div>
+
+  <aside class="music-player" aria-label="Trình phát nhạc nền">
+    <button class="music-main-toggle" type="button" data-audio-toggle aria-label="Bật nhạc nền" aria-pressed="false">
+      <span class="music-disc" aria-hidden="true"><span class="music-disc-core"></span></span>
+      <span class="player-icon player-icon-play" aria-hidden="true"></span>
+    </button>
+    <div class="music-meta">
+      <span class="music-kicker">Local playlist</span>
+      <strong class="music-title">Đang tìm nhạc...</strong>
+      <span class="music-status" role="status" aria-live="polite">Đọc thư mục assets/music</span>
+    </div>
+    <div class="music-visualizer" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <button class="music-next" type="button" aria-label="Phát bài ngẫu nhiên tiếp theo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 5 9 7-9 7V5Zm10 0h2v14h-2V5Z"/></svg>
+    </button>
+    <button class="music-mute" type="button" aria-label="Tắt âm thanh" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Zm12.5 3a4.5 4.5 0 0 0-2-3.74v7.48A4.5 4.5 0 0 0 16.5 12Z"/></svg>
+    </button>
+    <label class="volume-control">
+      <span class="sr-only">Âm lượng</span>
+      <input type="range" min="0" max="1" value="0.32" step="0.01" aria-label="Âm lượng nhạc nền">
+    </label>
+    <div class="track-progress" aria-hidden="true"><span></span></div>
+  </aside>
+
+  <div class="sound-hint" role="status">
+    <span>Phát một bài ngẫu nhiên từ playlist</span>
+    <button type="button" data-audio-toggle>Bật nhạc</button>
+    <button class="sound-hint-close" type="button" aria-label="Đóng gợi ý âm thanh">×</button>
+  </div>
+</body>
+</html>
